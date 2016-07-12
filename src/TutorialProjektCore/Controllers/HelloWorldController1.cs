@@ -12,15 +12,29 @@ namespace TutorialProjektCore.Controllers
     public class HelloWorldController1 : Controller
     {
         // GET: /<controller>/
-        public string Index()
+      /*  public string Index()
         {
             return "To dziala z defaulta";
         }
+        */
+        public IActionResult Index()
+        {
+            return View();
+        }
 
 
-        public string Welcome(string name,int numer=1)
+        /*
+         public string Welcome(string name,int numer=1)
         {
             return HtmlEncoder.Default.Encode($"Witaj {name}, id: {numer}");
+        }
+        */
+        public IActionResult Welcome(string name, int numer = 1)
+        {
+            ViewData["Message"] = "Hello" + name;
+            ViewData["numer"] = numer;
+
+            return View();
         }
     }
 }
